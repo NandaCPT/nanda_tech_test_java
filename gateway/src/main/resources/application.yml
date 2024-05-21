@@ -1,0 +1,21 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: techtest-service
+          uri: lb://TECHTEST-SERVICE
+          predicates:
+            - Path=/service/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${eureka_url:http://localhost:8072/eureka}

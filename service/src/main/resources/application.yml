@@ -1,0 +1,23 @@
+server:
+  port: 8093
+  servlet:
+    context-path: /service
+
+spring:
+  application:
+    name: techtest-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: admin
+    
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${eureka_url:http://localhost:8072/eureka}
